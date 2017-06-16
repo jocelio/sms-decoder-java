@@ -11,7 +11,7 @@ public class Main {
           String input ="886207777336683366222 20555666 6642";
 //        String input = "0123456789";
 
-        final String output = new SMS().getMessage(input);
+        final String output = new SMS(input).texto();
         System.out.println(output);
     }
 }

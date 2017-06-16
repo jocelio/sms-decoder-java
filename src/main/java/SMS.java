@@ -8,11 +8,17 @@ import java.util.stream.Stream;
  */
 public class SMS {
 
-    final List<String> alphabet = IntStream.rangeClosed('A', 'Z').mapToObj(c -> "" + (char) c).collect(Collectors.toList());
+    private final List<String> alphabet = IntStream.rangeClosed('A', 'Z').mapToObj(c -> "" + (char) c).collect(Collectors.toList());
 
-    public String getMessage(String input){
+    private String numerosDigitados;
 
-        return Stream.of(input.split("(?<=(.))(?!\\1)")).map(f -> new Key(f.charAt(0), f.length()))
+    public SMS(String numerosDigitados) {
+        this.numerosDigitados = numerosDigitados;
+    }
+
+    public String texto(){
+
+        return Stream.of(numerosDigitados.split("(?<=(.))(?!\\1)")).map(f -> new Key(f.charAt(0), f.length()))
                 .filter(s -> s.key >= 0)
                 .map(i -> {
                     if (i.key == 1) return "";
