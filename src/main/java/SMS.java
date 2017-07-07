@@ -3,9 +3,6 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-/**
- * Created by jocelio.lima on 6/15/2017.
- */
 public class SMS {
 
     private final List<String> alphabet = IntStream.rangeClosed('A', 'Z').mapToObj(c -> "" + (char) c).collect(Collectors.toList());
@@ -33,12 +30,13 @@ public class SMS {
     }
 
     class Key {
-
+        
         public int key, pushes;
 
         public Key(int key, int pushes) {
             this.key = Character.getNumericValue(key) ;
             this.pushes = pushes;
         }
+        
     }
 }
